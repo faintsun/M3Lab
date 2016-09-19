@@ -58,13 +58,17 @@ public class StudentEditController {
     @FXML
     private void initialize() {
 
-        standingBox.getItems().setAll(ClassStanding.values());
+
+        ObservableList<ClassStanding> standing = FXCollections.observableArrayList(ClassStanding.values());
+        standingBox.setItems(standing);
+
 //        standingBox.setOnMousePressed(new EventHandler<MouseEvent>(){
 //            @Override
 //            public void handle(MouseEvent event) {
 //                standingBox.requestFocus();
 //            }
 //        });
+
     }
 
     /**
@@ -92,7 +96,7 @@ public class StudentEditController {
         majorField.setText(_student.getMajor());
 
         if (_student.getStanding() == null) {
-            standingBox.getSelectionModel().selectFirst();
+            standingBox.getSelectionModel().select(ClassStanding.FR);
         }
     }
     //standingBox.setSelectionModel(ClassStanding.FR);

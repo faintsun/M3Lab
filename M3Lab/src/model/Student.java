@@ -59,6 +59,7 @@ public class Student {
     public Student(String name, String major) {
         _name.set(name);
         _major.set(major);
+        _standing.set(ClassStanding.FR);
     }
 
     /**
